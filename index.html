@@ -986,6 +986,11 @@
         // Handle success
         document.getElementsByClassName('sent-message')[0].style.display = 'block';
         document.getElementById('contactForm').reset();
+      
+        // Hide message after 5 seconds
+        setTimeout(function() {
+        document.getElementsByClassName('sent-message')[0].style.display = 'none';
+        }, 5000)
       } else {
         // Handle error
         document.getElementsByClassName('error-message')[0].style.display = 'block';
