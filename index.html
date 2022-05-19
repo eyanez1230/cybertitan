@@ -787,8 +787,7 @@
                   info@cybertitanlabs.com</div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="button" data-callback="onSubmit" onclick="onSubmit()">Send
-                  Message</button></div>
+              <div class="text-center"><button type="button" class="g-recaptcha" data-sitkey="6Le_3v8fAAAAAFTMD6JWGyxD2-LB9Ndk4B4tow-h" data-callback="onSubmit" onclick="onSubmit()">Send Message</button></div>
             </form>
           </div>
 
@@ -927,6 +926,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
@@ -974,6 +974,8 @@
   }
 
   async function onSubmit() {
+    grecaptcha.execute();
+    let captchaResponse = grecaptcha.getResponse();
     let contactForm = document.getElementById('contactForm');
 
     if (contactForm.checkValidity() === false) {
@@ -997,5 +999,7 @@
         document.getElementsByClassName('error-message')[0].style.display = 'block';
       }
     }
+
+    grecaptcha.reset();
   }
 </script>
