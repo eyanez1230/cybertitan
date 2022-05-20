@@ -6,6 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>CyberTitan Labs</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -790,7 +791,7 @@
               </div>
               <div class="text-center"><button type="button" class="g-recaptcha"
                   data-sitekey="6LeE_f8fAAAAAOEvTHyWTlAtPn0QTMj8lu2isSg2"
-                  onclick="onSubmit()">Send Message</button></div>
+                  data-callback="onSubmit">Send Message</button></div>
             </form>
           </div>
 
@@ -870,8 +871,6 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/jquery.initialize.min.js"></script>
-
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>
@@ -928,7 +927,8 @@
     return response;
   }
 
-  async function onSubmit() {
+  async function onSubmit(token) {
+    console.log(token);
     grecaptcha.execute();
     let captchaResponse = grecaptcha.getResponse();
     let contactForm = document.getElementById('contactForm');
