@@ -876,13 +876,13 @@
 </html>
 <script>
   // Need this because on this templat recaptcha will append to form element instead of body
-  // $(document).ready(function () {
-  //   $('.grecaptcha-badge').appendTo("body"); //fix recaptcha positioning to body  
-  // });
+  $(document).ready(function () {
+    $('.grecaptcha-badge').appendTo("body"); //fix recaptcha positioning to body  
+  });
   
-  // $.initialize(".grecaptcha-badge", function () {
-  //   $(this).appendTo("body"); //fix recaptcha positioning to body, even if it loads after the page  
-  // });
+  $.initialize(".grecaptcha-badge", function () {
+    $(this).appendTo("body"); //fix recaptcha positioning to body, even if it loads after the page  
+  });
 
 
   // Set date on copyright information in footer
